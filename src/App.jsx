@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import BookingGraphPage from "./pages/BookingGraphPage";
 import TrainBarChart from "./pages/TrainBarChart";
 import BookingRevenuePage from "./pages/BookingRevenuePage";
+import RegistrationPage from "./pages/RegistrationPage";
 
 export default function App() {
   return (
@@ -9,7 +10,8 @@ export default function App() {
       <h1>React App</h1>
       {/* <BookingGraphPage /> */}
       {/* <TrainBarChart /> */}
-      <BookingRevenuePage />
+      {/* <BookingRevenuePage /> */}
+      <RegistrationPage />  
     </>
   );
 }

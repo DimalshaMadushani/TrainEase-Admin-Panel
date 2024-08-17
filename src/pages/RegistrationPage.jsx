@@ -1,37 +1,50 @@
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const BookingGraphPage = () => {
+const RegistrationPage = () => {
   const [data, setData] = useState([]);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
   useEffect(() => {
-    const fetchBookings = async () => {
+    const fetchUserRegistrations = async () => {
       try {
-        const response = await axios.get("/api/admin/bookingsByDate", {
+        const response = await axios.get("/api/admin/userRegistrations", {
           params: {
-            startDate: startDate ? startDate.toISOString().split('T')[0] : '',
-            endDate: endDate ? endDate.toISOString().split('T')[0] : '',
+            startDate: startDate ? startDate.toISOString().split("T")[0] : "",
+            endDate: endDate ? endDate.toISOString().split("T")[0] : "",
           },
         });
         setData(response.data);
       } catch (error) {
-        console.error("Error fetching bookings data", error);
+        console.error("Error fetching user registrations data", error);
       }
     };
 
-    fetchBookings();
+    fetchUserRegistrations();
   }, [startDate, endDate]);
 
   return (
     <div>
-      <h1>Bookings By Date</h1>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+      <h1>User Registrations By Date</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: "20px",
+        }}
+      >
         <DatePicker
           selected={startDate}
           onChange={(date) => setStartDate(date)}
@@ -51,17 +64,17 @@ const BookingGraphPage = () => {
       </div>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart data={data}>
-          <Line type="monotone" dataKey="count" stroke="#8884d8" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="_id" />
           <YAxis />
           <Tooltip />
+          <Line type="monotone" dataKey="count" stroke="#8884d8" />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
 };
 
-export default BookingGraphPage;
-
-//
+export default RegistrationPage;
+////////////////
+///

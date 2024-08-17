@@ -1,17 +1,20 @@
 import { Button } from "@mui/material";
-import BookingGraphPage from "./pages/BookingGraphPage";
+import BookingGraphPage from "./pages/BookingsLineChart";
 import TrainBarChart from "./pages/TrainBarChart";
-import BookingRevenuePage from "./pages/BookingRevenuePage";
-import RegistrationPage from "./pages/RegistrationPage";
+import BookingRevenuePage from "./pages/RevenueChart";
+import RegistrationPage from "./pages/UserRegistrationsChart";
+import AdminPage from "./pages/AdminPage";
+
 
 export default function App() {
   return (
     <>
-      <h1>React App</h1>
+      
       {/* <BookingGraphPage /> */}
       {/* <TrainBarChart /> */}
       {/* <BookingRevenuePage /> */}
-      <RegistrationPage />  
+      {/* <RegistrationPage />   */}
+      <AdminPage />
     </>
   );
 }

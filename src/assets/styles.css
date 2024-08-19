@@ -1,0 +1,13 @@
+.custom-datepicker  {
+    padding: 10px;
+    padding-right: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    &:focus {
+        border-color: blue;
+        outline: none;
+    }
+}

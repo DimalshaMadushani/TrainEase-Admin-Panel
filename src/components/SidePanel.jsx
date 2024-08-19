@@ -1,47 +1,89 @@
-// src/components/SidePanel.js
 import React, { useState } from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
+import { Box, List, ListItem, ListItemText, Collapse } from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const SidePanel = ({ onMenuSelect }) => {
-  const [open, setOpen] = useState(false);
+  const [openCharts, setOpenCharts] = useState(false);
+  const [openBookings, setOpenBookings] = useState(false);
 
-  const handleClick = () => {
-    setOpen(!open);
+  const handleChartsClick = () => {
+    setOpenCharts(!openCharts);
+  };
+
+  const handleBookingsClick = () => {
+    setOpenBookings(!openBookings);
   };
 
   return (
-    <div style={{ width: '250px', height: '100vh', borderRight: '1px solid #ccc' }}>
+    <Box style={{ width: '250px', height: '100vh', borderRight: '1px solid #ccc', backgroundColor: '#1C2938' }}>
       <List component="nav">
-        <ListItem button onClick={handleClick}>
-          <ListItemText primary="Charts" />
-          {open ? <ExpandLess /> : <ExpandMore />}
+        <ListItem
+          button
+          onClick={handleChartsClick}
+          style={{ color: 'white' }}
+          sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }} // Hover effect
+        >
+          <ListItemText primary="Charts" primaryTypographyProps={{ style: { color: 'white' } }} />
+          {openCharts ? <ExpandLess style={{ color: 'white' }} /> : <ExpandMore style={{ color: 'white' }} />}
         </ListItem>
-        <Collapse in={open} timeout="auto" unmountOnExit>
+        <Collapse in={openCharts} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem button onClick={() => onMenuSelect('bookings')} style={{ paddingLeft: '32px' }}>
-              <ListItemText primary="Bookings" />
+            <ListItem
+              button
+              onClick={handleBookingsClick}
+              style={{ paddingLeft: '32px', color: 'white' }}
+              sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }} // Hover effect
+            >
+              <ListItemText primary="Bookings" primaryTypographyProps={{ style: { color: 'white' } }} />
+              {openBookings ? <ExpandLess style={{ color: 'white' }} /> : <ExpandMore style={{ color: 'white' }} />}
             </ListItem>
-            <ListItem button onClick={() => onMenuSelect('revenue')} style={{ paddingLeft: '32px' }}>
-              <ListItemText primary="Revenue" />
+            <Collapse in={openBookings} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding style={{ paddingLeft: '64px' }}>
+                <ListItem button onClick={() => onMenuSelect('allBookings')} sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }}>
+                  <ListItemText primary="All Bookings" primaryTypographyProps={{ style: { color: 'white' } }} />
+                </ListItem>
+                <ListItem button onClick={() => onMenuSelect('bookingsByTrain')} sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }}>
+                  <ListItemText primary="Bookings by Train" primaryTypographyProps={{ style: { color: 'white' } }} />
+                </ListItem>
+              </List>
+            </Collapse>
+            <ListItem
+              button
+              onClick={() => onMenuSelect('revenue')}
+              style={{ paddingLeft: '32px', color: 'white' }}
+              sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }} // Hover effect
+            >
+              <ListItemText primary="Revenue" primaryTypographyProps={{ style: { color: 'white' } }} />
             </ListItem>
-            <ListItem button onClick={() => onMenuSelect('registrations')} style={{ paddingLeft: '32px' }}>
-              <ListItemText primary="User Registrations" />
+            <ListItem
+              button
+              onClick={() => onMenuSelect('registrations')}
+              style={{ paddingLeft: '32px', color: 'white' }}
+              sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }} // Hover effect
+            >
+              <ListItemText primary="User Registrations" primaryTypographyProps={{ style: { color: 'white' } }} />
             </ListItem>
           </List>
         </Collapse>
-        <ListItem button onClick={() => onMenuSelect('reschedules')}>
-          <ListItemText primary="Reschedules" />
+        <ListItem
+          button
+          onClick={() => onMenuSelect('reschedules')}
+          style={{ color: 'white' }}
+          sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }} // Hover effect
+        >
+          <ListItemText primary="Reschedules" primaryTypographyProps={{ style: { color: 'white' } }} />
         </ListItem>
-        <ListItem button onClick={() => onMenuSelect('profile')}>
-          <ListItemText primary="Profile" />
+        <ListItem
+          button
+          onClick={() => onMenuSelect('profile')}
+          style={{ color: 'white' }}
+          sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }} // Hover effect
+        >
+          <ListItemText primary="Profile" primaryTypographyProps={{ style: { color: 'white' } }} />
         </ListItem>
       </List>
-    </div>
+    </Box>
   );
 };
 

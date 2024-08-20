@@ -43,6 +43,7 @@ import RevenueChart from "./pages/RevenueChart";
 import RegistrationPage from "./pages/UserRegistrationsChart";
 import AdminPage from "./pages/AdminPage";
 import Login from "./pages/LoginPage";
+import PrivateRoute from "./components/PrivateRoute";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -55,7 +56,9 @@ export default function App() {
             {/* Routes should be placed within a single Box if they need to be styled or structured */}
             <Routes>
               <Route path="/" element={<Login />} />
-              <Route path="/admin-page" element={<AdminPage />} />
+              <Route  element={<PrivateRoute />} >
+                <Route path="/admin-page" element={<AdminPage />} />
+            </Route>
             </Routes>
           </Box>
         </Box>

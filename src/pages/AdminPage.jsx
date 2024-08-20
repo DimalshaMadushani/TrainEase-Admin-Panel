@@ -1,6 +1,7 @@
 // src/components/App.js
 import React, { useState } from 'react';
 import {Box} from '@mui/material';
+import Profile from './Profile';  // A component to display user profile
 import SidePanel from '../components/SidePanel';  // A component to display side panel
 import Dashboard from '../components/Dashboard';  // A component to handle initial or default view
 import BookingsLineChart from './BookingsLineChart';  // A component to display bookings chart

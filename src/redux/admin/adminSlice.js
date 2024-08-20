@@ -16,7 +16,7 @@ const adminSlice = createSlice({
       state.loading = true;
     },
     loginSuccess: (state, action) => {
-      state.currentUser = action.payload;
+      state.currentAdmin = action.payload;
       state.loading = false;
       state.error = null;
     },
@@ -29,7 +29,7 @@ const adminSlice = createSlice({
       state.loading = true;
     },
     logOutSuccess: (state) => {
-      state.currentUser = null;
+      state.currentAdmin = null;
       state.loading = false;
       state.error = null;
     },
@@ -42,13 +42,13 @@ const adminSlice = createSlice({
     },
     // This reducer is to set the user data in the state related to admin-page route
     setUpAdmin: (state, action) => {
-      state.currentUser = action.payload;
+      state.currentAdmin = action.payload;
       state.loading = false;
       state.error = null;
     },
     // This reducer is to delete the user data from the state related to admin-page route
     deleteAdmin: (state) => {
-      state.currentUser = null;
+      state.currentAdmin = null;
       state.loading = false;
       state.error = null;
     }

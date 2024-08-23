@@ -7,7 +7,7 @@ import Dashboard from '../components/Dashboard';  // A component to handle initi
 import BookingsLineChart from './BookingsLineChart';  // A component to display bookings chart
 import RevenueChart from './RevenueChart';  // A component to display revenue chart
 import UserRegistrationsChart from './UserRegistrationsChart';  // A component to display user registrations chart
-// import Reschedules from '../components/Reschedules';  // A component to display reschedules
+import Reschedule from './Reschedule';  // A component to display reschedules
 import TrainBarChart from './TrainBarChart';
 
 const AdminPage = () => {
@@ -28,7 +28,7 @@ const AdminPage = () => {
         {selectedMenu === 'revenue' && <RevenueChart />}
         {selectedMenu === 'trains' && <TrainBarChart />}
         {selectedMenu === 'registrations' && <UserRegistrationsChart />}
-        {selectedMenu === 'reschedules' && <Reschedules />}
+        {selectedMenu === 'reschedules' && <Reschedule />}
         {selectedMenu === 'profile' && <Profile />}
       </Box>
     </div>

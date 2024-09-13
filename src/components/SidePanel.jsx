@@ -56,14 +56,14 @@ const SidePanel = ({ onMenuSelect }) => {
             >
               <ListItemText primary="Revenue" primaryTypographyProps={{ style: { color: 'white' } }} />
             </ListItem>
-            <ListItem
+            {/* <ListItem
               button
               onClick={() => onMenuSelect('registrations')}
               style={{ paddingLeft: '32px', color: 'white' }}
               sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }} // Hover effect
             >
               <ListItemText primary="User Registrations" primaryTypographyProps={{ style: { color: 'white' } }} />
-            </ListItem>
+            </ListItem> */}
           </List>
         </Collapse>
         <ListItem

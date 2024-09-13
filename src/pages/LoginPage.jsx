@@ -90,11 +90,6 @@ export default function Login() {
           >
             Login
           </Button>
-          <Box display="flex" justifyContent="center">
-            <Link href="/register" variant="body2">
-              {"Don't have an account? Register here"}
-            </Link>
-          </Box>
         </Box>
       </Box>
     </Container>

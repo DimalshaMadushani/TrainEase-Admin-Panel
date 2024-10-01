@@ -48,7 +48,7 @@ export default function Login() {
         }}
       >
         <Typography component="h1" variant="h5">
-          Login
+          TrainEase Admin Login
         </Typography>
         <Box
           component="form"

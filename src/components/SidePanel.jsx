@@ -49,21 +49,21 @@ const SidePanel = ({ onMenuSelect }) => {
               </List>
             </Collapse>
             <ListItem
-              button
+              
               onClick={() => onMenuSelect('revenue')}
               style={{ paddingLeft: '32px', color: 'white' }}
               sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }} // Hover effect
             >
               <ListItemText primary="Revenue" primaryTypographyProps={{ style: { color: 'white' } }} />
             </ListItem>
-            {/* <ListItem
-              button
+            <ListItem
+              
               onClick={() => onMenuSelect('registrations')}
               style={{ paddingLeft: '32px', color: 'white' }}
               sx={{ '&:hover': { backgroundColor: '#2A3B4C' } }} // Hover effect
             >
               <ListItemText primary="User Registrations" primaryTypographyProps={{ style: { color: 'white' } }} />
-            </ListItem> */}
+            </ListItem>
           </List>
         </Collapse>
         <ListItem

@@ -6,7 +6,7 @@ import SidePanel from '../components/SidePanel';  // A component to display side
 import Dashboard from '../components/Dashboard';  // A component to handle initial or default view
 import BookingsLineChart from './BookingsLineChart';  // A component to display bookings chart
 import RevenueChart from './RevenueChart';  // A component to display revenue chart
-// import UserRegistrationsChart from './UserRegistrationsChart';  // A component to display user registrations chart
+import UserRegistrationsChart from './UserRegistrationsChart';  // A component to display user registrations chart
 import Reschedule from './Reschedule';  // A component to display reschedules
 import TrainBarChart from './TrainBarChart';
 
@@ -27,7 +27,7 @@ const AdminPage = () => {
         {selectedMenu === 'bookingsByTrain' && <TrainBarChart />}
         {selectedMenu === 'revenue' && <RevenueChart />}
         {selectedMenu === 'trains' && <TrainBarChart />}
-        {/* {selectedMenu === 'registrations' && <UserRegistrationsChart />} */}
+        {selectedMenu === 'registrations' && <UserRegistrationsChart />}
         {selectedMenu === 'reschedules' && <Reschedule />}
         {selectedMenu === 'profile' && <Profile />}
       </Box>

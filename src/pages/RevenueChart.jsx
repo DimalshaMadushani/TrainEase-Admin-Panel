@@ -154,7 +154,7 @@ const RevenueChart = () => {
           <LineChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="_id" name="Date" />
-            <YAxis label={<Text x={0} y={0} dx={20} dy={150} offset={0} angle={-90} fontWeight="bold">Revenue ($)</Text>} />
+            <YAxis label={<Text x={0} y={0} dx={20} dy={150} offset={0} angle={-90} fontWeight="bold">Revenue (LKR)</Text>} />
             <Tooltip />
             <Legend />
             <Line type="monotone" dataKey="totalRevenue" stroke="#8884d8" strokeWidth={2} activeDot={{ r: 8 }} />

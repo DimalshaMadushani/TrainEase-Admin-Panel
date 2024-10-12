@@ -31,7 +31,8 @@ export default function TrainBarChart() {
     const fetchTrains = async () => {
       try {
         const response = await axios.get(
-          "https://trainease-backend.onrender.com/api/admin/trains"
+          "https://trainease-backend.onrender.com/api/admin/trains",
+          { withCredentials: true }
         );
         setTrains(response.data);
       } catch (error) {
@@ -55,6 +56,7 @@ export default function TrainBarChart() {
             endDate: endDate,
             trainId: selectedTrain,
           },
+          withCredentials: true,
         }
       );
       setData(response.data);

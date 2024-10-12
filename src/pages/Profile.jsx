@@ -19,7 +19,8 @@ export default function Profile() {
   const handleSignout = async () => {
     try {
       await axios.get(
-        "https://trainease-backend.onrender.com/api/admin/logout"
+        "https://trainease-backend.onrender.com/api/admin/logout",
+        { withCredentials: true }
       );
       navigate("/");
     } catch (error) {

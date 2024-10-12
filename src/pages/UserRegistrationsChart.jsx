@@ -29,6 +29,7 @@ const RegistrationPage = () => {
                 startDate: startDate,
                 endDate: endDate,
               },
+              withCredentials: true,
             }
           );
           setData(response.data);

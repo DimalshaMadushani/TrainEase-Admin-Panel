@@ -16,7 +16,8 @@ export default function PrivateRoute() {
     async function checkAuth() {
       try {
         const response = await axios.get(
-          "https://trainease-backend.onrender.com/api/admin/getProfile"
+          "https://trainease-backend.onrender.com/api/admin/getProfile",
+          { withCredentials: true }
         );
         setIsAuthenticated(true);
         dispatch(setUpAdmin(response.data));

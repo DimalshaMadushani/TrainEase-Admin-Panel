@@ -41,7 +41,7 @@ export default function Login() {
         {
           username,
           password,
-        }
+        },
       );
       console.log("Response:", response);
       dispatch(loginSuccess(response.data));

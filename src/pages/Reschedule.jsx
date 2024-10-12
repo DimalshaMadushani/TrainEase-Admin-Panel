@@ -31,7 +31,8 @@ const Reschedule = () => {
     async function fetchSchedules() {
       try {
         const response = await axios.get(
-          "https://trainease-backend.onrender.com/api/admin/schedules"
+          "https://trainease-backend.onrender.com/api/admin/schedules",
+          { withCredentials: true }
         );
         if (response.status === 200) {
           const resSchedules = response.data.map((schedule) => ({
@@ -61,7 +62,8 @@ const Reschedule = () => {
     try {
       console.log("Fetching stations for schedule:", scheduleId);
       const response = await axios.get(
-        `https://trainease-backend.onrender.com/api/admin/stationsOfSchedule/${scheduleId}`
+        `https://trainease-backend.onrender.com/api/admin/stationsOfSchedule/${scheduleId}`,
+         { withCredentials: true }
       );
       if (response.status === 200) {
         const resStations = response.data.map((station) => ({
@@ -105,7 +107,7 @@ const Reschedule = () => {
     setNotifyHalts(false);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!scheduleChange) {
       alert("Please select a change type.");
@@ -139,13 +141,15 @@ const Reschedule = () => {
       change: scheduleChange === "platform" ? platformNumber : delayMinutes,
     };
     try {
-      axios.post(
+      const response = await axios.post(
         "https://trainease-backend.onrender.com/api/admin/notifyReschedule",
-        null,
+        null, // No body data is being sent
         {
-          params: data,
+          params: data, // Query parameters
+          withCredentials: true // Include cookies with the request
         }
       );
+      
       alert("Notification sent successfully.");
     } catch (error) {
       console.error("Failed to send notification:", error);

@@ -28,6 +28,7 @@ const BookingsLineChart = () => {
                 startDate: startDate,
                 endDate: endDate,
               },
+              withCredentials: true,
             }
           );
           setData(response.data);

@@ -1,21 +1,38 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
-  BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend,
+  BarChart,
+  Bar,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
 } from "recharts";
-import { TextField, Button, MenuItem, FormControl, InputLabel, Grid ,Select} from '@mui/material';
+import {
+  TextField,
+  Button,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Grid,
+  Select,
+} from "@mui/material";
 
 export default function TrainBarChart() {
   const [data, setData] = useState([]);
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const [trains, setTrains] = useState([]);
   const [selectedTrain, setSelectedTrain] = useState("");
 
   useEffect(() => {
     const fetchTrains = async () => {
       try {
-        const response = await axios.get("/api/admin/trains");
+        const response = await axios.get(
+          "https://trainease-backend.onrender.com/api/admin/trains"
+        );
         setTrains(response.data);
       } catch (error) {
         console.error("Error fetching trains data", error);
@@ -30,13 +47,16 @@ export default function TrainBarChart() {
       return;
     }
     try {
-      const response = await axios.get(`/api/admin/bookingsByDateAndSchedule`, {
-        params: {
-          startDate: startDate,
-          endDate: endDate,
-          trainId: selectedTrain,
-        },
-      });
+      const response = await axios.get(
+        `https://trainease-backend.onrender.com/api/admin/bookingsByDateAndSchedule`,
+        {
+          params: {
+            startDate: startDate,
+            endDate: endDate,
+            trainId: selectedTrain,
+          },
+        }
+      );
       setData(response.data);
     } catch (error) {
       console.error("Error fetching bookings data", error);
@@ -44,7 +64,13 @@ export default function TrainBarChart() {
   };
 
   return (
-    <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ padding: 3 }}>
+    <Grid
+      container
+      spacing={2}
+      alignItems="center"
+      justifyContent="center"
+      sx={{ padding: 3 }}
+    >
       <Grid item xs={12}>
         <h1>Bookings By Train</h1>
       </Grid>
@@ -77,9 +103,13 @@ export default function TrainBarChart() {
             label="Select Train"
             onChange={(e) => setSelectedTrain(e.target.value)}
           >
-            <MenuItem value=""><em>None</em></MenuItem>
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
             {trains.map((train) => (
-              <MenuItem key={train._id} value={train._id}>{train.name}</MenuItem>
+              <MenuItem key={train._id} value={train._id}>
+                {train.name}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>

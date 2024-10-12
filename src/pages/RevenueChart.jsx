@@ -23,7 +23,7 @@
 //     const fetchBookings = async () => {
 //       if (startDate && endDate) {  // Ensure both dates are selected
 //         try {
-//           const response = await axios.get("/api/admin/revenue", {
+//           const response = await axios.get("https://trainease-backend.onrender.com/api/admin/revenue", {
 //             params: {
 //               startDate: startDate.toISOString().split('T')[0],
 //               endDate: endDate.toISOString().split('T')[0],
@@ -97,23 +97,26 @@ import {
   Text,
   ResponsiveContainer,
 } from "recharts";
-import { TextField, Grid, Box } from '@mui/material';
+import { TextField, Grid, Box } from "@mui/material";
 
 const RevenueChart = () => {
   const [data, setData] = useState([]);
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   useEffect(() => {
     if (startDate && endDate) {
       const fetchBookings = async () => {
         try {
-          const response = await axios.get("/api/admin/revenue", {
-            params: {
-              startDate: startDate,
-              endDate: endDate,
-            },
-          });
+          const response = await axios.get(
+            "https://trainease-backend.onrender.com/api/admin/revenue",
+            {
+              params: {
+                startDate: startDate,
+                endDate: endDate,
+              },
+            }
+          );
           setData(response.data);
         } catch (error) {
           console.error("Error fetching bookings data", error);
@@ -125,10 +128,16 @@ const RevenueChart = () => {
   }, [startDate, endDate]);
 
   return (
-    <Box sx={{ padding: 3, backgroundColor: '#f4f6f8' }}>
-      <h2 style={{ textAlign: 'center' }}>Revenue of Bookings</h2>
-      <Grid container spacing={2} justifyContent="center" alignItems="center" sx={{m:3 ,mb:5}}>
-        <Grid item xs={12} sm={6} >
+    <Box sx={{ padding: 3, backgroundColor: "#f4f6f8" }}>
+      <h2 style={{ textAlign: "center" }}>Revenue of Bookings</h2>
+      <Grid
+        container
+        spacing={2}
+        justifyContent="center"
+        alignItems="center"
+        sx={{ m: 3, mb: 5 }}
+      >
+        <Grid item xs={12} sm={6}>
           <TextField
             label="Start Date"
             type="date"
@@ -154,14 +163,34 @@ const RevenueChart = () => {
           <LineChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="_id" name="Date" />
-            <YAxis label={<Text x={0} y={0} dx={20} dy={150} offset={0} angle={-90} fontWeight="bold">Revenue (LKR)</Text>} />
+            <YAxis
+              label={
+                <Text
+                  x={0}
+                  y={0}
+                  dx={20}
+                  dy={150}
+                  offset={0}
+                  angle={-90}
+                  fontWeight="bold"
+                >
+                  Revenue (LKR)
+                </Text>
+              }
+            />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="totalRevenue" stroke="#8884d8" strokeWidth={2} activeDot={{ r: 8 }} />
+            <Line
+              type="monotone"
+              dataKey="totalRevenue"
+              stroke="#8884d8"
+              strokeWidth={2}
+              activeDot={{ r: 8 }}
+            />
           </LineChart>
         </ResponsiveContainer>
       ) : (
-        <Box sx={{ textAlign: 'center', padding: 5, fontSize: '20px' }}>
+        <Box sx={{ textAlign: "center", padding: 5, fontSize: "20px" }}>
           Please select both start and end dates to view the chart.
         </Box>
       )}
@@ -170,5 +199,3 @@ const RevenueChart = () => {
 };
 
 export default RevenueChart;
-
-

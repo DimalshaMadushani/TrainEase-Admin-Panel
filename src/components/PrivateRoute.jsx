@@ -7,7 +7,6 @@ import { setUpAdmin, deleteAdmin } from "../redux/admin/adminSlice";
 import { TailSpin } from "react-loader-spinner";
 import { Box } from "@mui/material";
 
-
 export default function PrivateRoute() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const dispatch = useDispatch();
@@ -16,7 +15,9 @@ export default function PrivateRoute() {
   useEffect(() => {
     async function checkAuth() {
       try {
-        const response = await axios.get("/api/admin/getProfile");
+        const response = await axios.get(
+          "https://trainease-backend.onrender.com/api/admin/getProfile"
+        );
         setIsAuthenticated(true);
         dispatch(setUpAdmin(response.data));
       } catch (error) {
@@ -52,9 +53,5 @@ export default function PrivateRoute() {
     );
   }
 
-  return isAuthenticated ? (
-    <Outlet replace />
-  ) : (
-    <Navigate to="/" replace />
-  );
+  return isAuthenticated ? <Outlet replace /> : <Navigate to="/" replace />;
 }

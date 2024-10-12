@@ -30,7 +30,9 @@ const Reschedule = () => {
   useEffect(() => {
     async function fetchSchedules() {
       try {
-        const response = await axios.get("/api/admin/schedules");
+        const response = await axios.get(
+          "https://trainease-backend.onrender.com/api/admin/schedules"
+        );
         if (response.status === 200) {
           const resSchedules = response.data.map((schedule) => ({
             label:
@@ -59,7 +61,7 @@ const Reschedule = () => {
     try {
       console.log("Fetching stations for schedule:", scheduleId);
       const response = await axios.get(
-        `/api/admin/stationsOfSchedule/${scheduleId}`
+        `https://trainease-backend.onrender.com/api/admin/stationsOfSchedule/${scheduleId}`
       );
       if (response.status === 200) {
         const resStations = response.data.map((station) => ({
@@ -137,9 +139,13 @@ const Reschedule = () => {
       change: scheduleChange === "platform" ? platformNumber : delayMinutes,
     };
     try {
-      axios.post("/api/admin/notifyReschedule", null, {
-        params: data,
-      });
+      axios.post(
+        "https://trainease-backend.onrender.com/api/admin/notifyReschedule",
+        null,
+        {
+          params: data,
+        }
+      );
       alert("Notification sent successfully.");
     } catch (error) {
       console.error("Failed to send notification:", error);

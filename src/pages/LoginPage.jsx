@@ -1,39 +1,54 @@
-import React, { useState } from 'react';
-import { Container, TextField, Button, Link, Typography, Box, Alert } from '@mui/material';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // For navigation
-import { useDispatch, useSelector } from 'react-redux';
-import { loginStart, loginSuccess, loginFailure,clearError } from '../redux/admin/adminSlice';
-import { useEffect } from 'react';
+import React, { useState } from "react";
+import {
+  Container,
+  TextField,
+  Button,
+  Link,
+  Typography,
+  Box,
+  Alert,
+} from "@mui/material";
+import axios from "axios";
+import { useNavigate } from "react-router-dom"; // For navigation
+import { useDispatch, useSelector } from "react-redux";
+import {
+  loginStart,
+  loginSuccess,
+  loginFailure,
+  clearError,
+} from "../redux/admin/adminSlice";
+import { useEffect } from "react";
 
 export default function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Hook for navigation
   const dispatch = useDispatch();
   const { currentAdmin, error, loading } = useSelector((state) => state.admin);
 
-   //this use to avoid displaying old errors even after refrehsing the page
-   useEffect(() => {
+  //this use to avoid displaying old errors even after refrehsing the page
+  useEffect(() => {
     dispatch(clearError()); // Clear error state when the component mounts
   }, [dispatch]);
 
-
   const handleLogin = async (event) => {
     event.preventDefault(); // Prevent default form submission
-    console.log('Logging in...');
+    console.log("Logging in...");
     dispatch(loginStart());
     try {
-      const response = await axios.post('/api/admin/login', {
-        username,
-        password,
-      });
-      console.log('Response:', response);
+      const response = await axios.post(
+        "https://trainease-backend.onrender.com/api/admin/login",
+        {
+          username,
+          password,
+        }
+      );
+      console.log("Response:", response);
       dispatch(loginSuccess(response.data));
-      navigate('/admin-page'); // Redirect to home page after successful login
+      navigate("/admin-page"); // Redirect to home page after successful login
     } catch (error) {
-      console.error('Error during login:', error);
-      dispatch(loginFailure(error.response?.data?.message || 'Unknown error'));
+      console.error("Error during login:", error);
+      dispatch(loginFailure(error.response?.data?.message || "Unknown error"));
     }
   };
 
@@ -41,10 +56,10 @@ export default function Login() {
     <Container component="main" maxWidth="xs">
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          marginTop: '10%',
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: "10%",
         }}
       >
         <Typography component="h1" variant="h5">
@@ -52,7 +67,7 @@ export default function Login() {
         </Typography>
         <Box
           component="form"
-          sx={{ width: '100%', mt: 1 }}
+          sx={{ width: "100%", mt: 1 }}
           noValidate
           onSubmit={handleLogin}
         >

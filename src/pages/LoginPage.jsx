@@ -42,6 +42,7 @@ export default function Login() {
           username,
           password,
         },
+        { withCredentials: true }
       );
       console.log("Response:", response);
       dispatch(loginSuccess(response.data));

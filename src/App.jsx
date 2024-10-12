@@ -58,9 +58,9 @@ export default function App() {
             {/* Routes should be placed within a single Box if they need to be styled or structured */}
             <Routes>
               <Route path="/" element={<Login />} />
-              {/* <Route element={<PrivateRoute />}> */}
+              <Route element={<PrivateRoute />}>
                 <Route path="/admin-page" element={<AdminPage />} />
-              {/* </Route> */}
+              </Route>
             </Routes>
           </Box>
         </Box>

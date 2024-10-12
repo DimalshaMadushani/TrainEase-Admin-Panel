@@ -23,13 +23,13 @@
 //         <Box sx={{ flex: "1 0 auto", backgroundColor: "rosybrown" }}></Box>
 //           <Routes>
 //             <Route path="/login" element={<Login />} />
-            
+
 //             {/* <Route  element={<PrivateRoute />} >
 //               <Route path="/admin-page" element={<AdminPage />} />
 //             </Route> */}
 //             <Route path="/admin-page" element={<AdminPage />} />
 //           </Routes>
-//           </Box> 
+//           </Box>
 //       </BrowserRouter>
 //       </Box>
 //       </>
@@ -50,15 +50,17 @@ export default function App() {
   return (
     <>
       <BrowserRouter>
-        <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <Box
+          sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+        >
           <CssBaseline />
           <Box sx={{ flex: "1 0 auto", backgroundColor: "#F4F6F6" }}>
             {/* Routes should be placed within a single Box if they need to be styled or structured */}
             <Routes>
               <Route path="/" element={<Login />} />
-              <Route  element={<PrivateRoute />} >
+              {/* <Route element={<PrivateRoute />}> */}
                 <Route path="/admin-page" element={<AdminPage />} />
-            </Route>
+              {/* </Route> */}
             </Routes>
           </Box>
         </Box>

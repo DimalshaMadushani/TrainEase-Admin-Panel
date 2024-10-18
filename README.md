@@ -1,7 +1,7 @@
 
 # TrainEase - Admin Panel
 
-The TrainEase Admin Dashboard is a powerful platform that helps administrators manage tasks easily. It has a secure login system and a user-friendly interface, letting admins use charts to see bookings, revenue, and user registrations for a chosen time period. The dashboard also allows quick rescheduling of trains and ensures passengers are promptly notified of any changes through email.
+The TrainEase Admin Panel is a powerful platform that helps administrators manage tasks easily. It has a secure login system and a user-friendly interface, letting admins use charts to see bookings, revenue, and user registrations for a chosen time period. The dashboard also allows quick rescheduling of trains and ensures passengers are promptly notified of any changes through email.
 
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
@@ -13,7 +13,7 @@ The TrainEase Admin Dashboard is a powerful platform that helps administrators m
 - **Admin Login and Dashboard Overview:** Provides a secure login system for administrators. Once logged in, admins access the central dashboard, which serves as the main hub for managing tasks and monitoring system activities with a clean, user-friendly interface.
   
 
-- **Charts and Analytics (Bookings, Revenue, and User Registrations):** The analytics section offers real-time data visualization through charts, allowing admins to track key metrics like all bookings or bookings for a specific train, revenue, and user registrations. Charts can be filtered by specific date ranges for detailed analysis.
+- **Charts and Analytics (Bookings, Revenue, and User Registrations):** The analytics section offers real-time data visualization through line and bar charts, allowing admins to track key metrics like all bookings or bookings for a specific train, revenue, and user registrations. Charts can be filtered by specific date ranges for detailed analysis.
 
 - **Train Rescheduling and Notifications:** Allows admins to reschedule trains due to maintenance or other operational changes. The system enables time and platform modifications and automatically notifies all affected passengers via email about the updated schedule.
 
@@ -70,4 +70,4 @@ The TrainEase Admin Dashboard is a powerful platform that helps administrators m
 
 ## Deployment
 
-We built our web application on [Render](https://render.com/) plaform. You can access the live application at [TrainEase](https://trainease-frontend-web.onrender.com).
+We built our web application on [Render](https://render.com/) plaform. You can access the live application at ???

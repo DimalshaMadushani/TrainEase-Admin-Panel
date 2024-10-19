@@ -5,7 +5,7 @@ The TrainEase Admin Panel is a powerful platform that helps administrators manag
 
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-    <img src="./src/assets/Home.PNG" alt="Home Screen"/>
+    <img src="./src/assets/image.png" alt="Home Screen"/>
 </div>
 
 ## Features
@@ -17,7 +17,7 @@ The TrainEase Admin Panel is a powerful platform that helps administrators manag
 
 - **Train Rescheduling and Notifications:** Allows admins to reschedule trains due to maintenance or other operational changes. The system enables time and platform modifications and automatically notifies all affected passengers via email about the updated schedule.
 
--**Sign Out Option:** For added security, admins can log out using the Sign Out option to prevent unauthorized access when stepping away from the device.
+- **Sign Out Option:** For added security, admins can log out using the Sign Out option to prevent unauthorized access when stepping away from the device.
 
 ## Tech Stack
 
@@ -70,4 +70,4 @@ The TrainEase Admin Panel is a powerful platform that helps administrators manag
 
 ## Deployment
 
-We built our web application on [Render](https://render.com/) plaform. You can access the live application at ???
+We built our web application on [Render](https://render.com/) plaform. You can access the live application at [TrainEase-Admin-Panel](https://trainease-admin-panel.onrender.com).
